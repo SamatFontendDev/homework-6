@@ -9,3 +9,12 @@
 
 // Так же в этом файле обьявите лейаут,
 // используйте стили из AppRouter.module.css
+import {Component} from 'react'
+
+
+class AppRouter extends Component{
+    
+
+}
+
+export default AppRouter

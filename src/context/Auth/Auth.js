@@ -4,6 +4,7 @@ const { Provider, Consumer } = React.createContext('');
 class AuthProvider extends Component {
   email = 'test@test.ru';
   password = '321';
+  loginPath = '/'
 
   state = {
     isAuthorized: false,
