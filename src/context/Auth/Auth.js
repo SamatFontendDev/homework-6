@@ -34,6 +34,7 @@ const withAuth = WrappedComponent => {
   class AuthHOC extends Component {
     render() {
       const { ...rest } = this.props;
+      
       return (
         <Consumer>
           {contextProps => <WrappedComponent {...contextProps} {...rest} />}

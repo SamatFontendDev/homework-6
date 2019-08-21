@@ -16,31 +16,34 @@ class Form extends Component {
 
     handleChange(e) {
         this.setState({
-            email: e.target.value,
-            password: e.target.value
+            [e.target.name]: e.target.value
         })
     }
 
     handleSubmit(e) {
         e.preventDefault();
+        const { email, password } = this.state;
+        const { authorize, history } = this.props;
         
+        authorize(email, password);
+        history.push('/app')
     }
 
     render() {
         return(
             <div className={css.bg}>
-                <form className={css.form}>
+                <form onSubmit={e => this.handleSubmit(e)} className={css.form}>
                     <p>
-                        <label for={css.mail}>
+                        <label htmlFor={css.mail}>
                             <span className={css.labelText}>Почта</span>
                         </label>
-                        <input value={this.state.email} id="mail" className={css.input} />
+                        <input type="email" name="email"  onChange={e => this.handleChange(e)} value={this.state.email} id="mail" className={css.input} />
                     </p>
                     <p>
-                        <label for="password">
+                        <label htmlFor="password">
                             <span className={css.labelText}>Пароль</span>
                         </label>
-                        <input value={this.state.password} id="password" className={css.input} />
+                        <input type="password" name="password" onChange={e => this.handleChange(e)} value={this.state.password} id="password" className={css.input} />
                     </p>
                     <div className={css.buttons}>
                         <button className={css.button}>Войти</button>
