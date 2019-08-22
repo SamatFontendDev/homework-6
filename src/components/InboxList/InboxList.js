@@ -5,17 +5,20 @@
 // Этот компонент должен использовать MailList для отображения данных.
 import React from 'react'
 import { withData } from '../../context/Data'
+import MailList from '../MailList/MailList'
 
-const InboxList = () => {
+const InboxList = (obj) => {
+    const dataInbox = obj.data.inbox;
+    console.log(obj);
     return(
         <div>
-            {data.map(todo => (
-                <p>{todo}</p>
+            {dataInbox.map((todo, index) => (
+                <MailList match={obj.match}  key={index} text={todo} />
             ))}
         </div>
     )
 }
 
-const InboxListW = withData(<InboxList/>);
+const InboxListW = withData(InboxList);
 
 export default InboxListW;

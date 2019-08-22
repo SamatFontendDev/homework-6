@@ -32,21 +32,21 @@ class Form extends Component {
     render() {
         return(
             <div className={css.bg}>
-                <form onSubmit={e => this.handleSubmit(e)} className={css.form}>
+                <form onSubmit={e => this.handleSubmit(e)} className={css.form + ' t-form'}>
                     <p>
                         <label htmlFor={css.mail}>
                             <span className={css.labelText}>Почта</span>
                         </label>
-                        <input type="email" name="email"  onChange={e => this.handleChange(e)} value={this.state.email} id="mail" className={css.input} />
+                        <input type="email" name="email"  onChange={e => this.handleChange(e)} value={this.state.email} id="mail" className={css.input + ' t-input-email'} />
                     </p>
                     <p>
                         <label htmlFor="password">
                             <span className={css.labelText}>Пароль</span>
                         </label>
-                        <input type="password" name="password" onChange={e => this.handleChange(e)} value={this.state.password} id="password" className={css.input} />
+                        <input type="password" name="password" onChange={e => this.handleChange(e)} value={this.state.password} id="password" className={css.input + ' t-input-password'} />
                     </p>
                     <div className={css.buttons}>
-                        <button className={css.button}>Войти</button>
+                        <button className={css.button + ' t-login'}>Войти</button>
                     </div>
                 </form>
             </div>

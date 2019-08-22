@@ -12,8 +12,8 @@
 import React from 'react'
 import css from './AppRouter.module.css'
 import Home from '../Home/Home'
-import { Route, Link } from 'react-router-dom';
-
+import { Route, Link, Switch } from 'react-router-dom'
+import InboxListW from '../InboxList/InboxList'
 
 class AppRouter extends React.Component {
     render() {
@@ -21,23 +21,26 @@ class AppRouter extends React.Component {
             <div className={css.wrapper}>
                 <div className={css.container}>
                     <nav className={css.nav}>
-                        <ul className={css.navList}>
+                        <ul className={css.navList + ' t-nav-list'}>
                             <li className={css.navElement}>
-                                <Link className={css.link} to="/app">Home</Link>
+                                <Link className={css.link + ' t-link-home'} className={css.link} to="/app">Home</Link>
                             </li>    
                             <li className={css.navElement}>
-                                <Link to="/app/inbox" className={css.link}>Inbox</Link>
+                                <Link className={css.link + ' t-link-inbox'} to="/app/inbox" className={css.link}>Inbox</Link>
                             </li>    
                             <li className={css.navElement}>
-                                <Link to="/app/outbox" className={css.link}>Outbox</Link>
-                            </li>    
+                                <Link className={css.link + ' t-link-outbox'} to="/app/outbox" className={css.link}>Outbox</Link>
+                            </li>
                         </ul>  
                     </nav>
                     <div className={css.content}>
                         <h3 className={css.title}></h3>
-                        <div className={css.content}></div>
-                        <Route path="/app" component={Home} />
-                       
+                        <div className={css.content}>
+                            <Switch>
+                                <Route path="/app" component={Home} exact={true} />
+                                <Route path="/app/inbox" component={InboxListW} />
+                            </Switch>
+                        </div>
                     </div>
                 </div>
             </div>
