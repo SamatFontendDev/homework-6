@@ -14,9 +14,14 @@ import css from './AppRouter.module.css'
 import Home from '../Home/Home'
 import { Route, Link, Switch } from 'react-router-dom'
 import InboxListW from '../InboxList/InboxList'
+import InboxMail from '../InboxMail/InboxMail'
+import OutboxListW from '../OutboxList/OutboxList'
+import OutboxMail from '../OutboxMail/OutboxMail'
 
 class AppRouter extends React.Component {
     render() {
+        const location = this.props.location.pathname;
+        console.log(location);
         return(
             <div className={css.wrapper}>
                 <div className={css.container}>
@@ -34,11 +39,14 @@ class AppRouter extends React.Component {
                         </ul>  
                     </nav>
                     <div className={css.content}>
-                        <h3 className={css.title}></h3>
+                        <h3 className={css.title}>{location === '/app' ? 'Home' : location === '/app/inbox' ? 'Inbox' : location === '/app/outbox' ? 'Outbox' : 'ss'}</h3>
                         <div className={css.content}>
                             <Switch>
-                                <Route path="/app" component={Home} exact={true} />
-                                <Route path="/app/inbox" component={InboxListW} />
+                                <Route path="/app" component={Home} exact />
+                                <Route path="/app/inbox" component={InboxListW} exact />
+                                <Route path="/app/inbox/:id" component={InboxMail} exact />
+                                <Route path="/app/outbox" component={OutboxListW} exact />
+                                <Route path="/app/outbox/:id" component={OutboxMail} />
                             </Switch>
                         </div>
                     </div>
