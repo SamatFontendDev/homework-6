@@ -39,7 +39,7 @@ class AppRouter extends React.Component {
                         </ul>  
                     </nav>
                     <div className={css.content}>
-                        <h3 className={css.title}>{location === '/app' ? 'Home' : location.includes('/app/inbox') ? 'Inbox' : location.includes('/app/outbox') ? 'Outbox' : ''}</h3>
+                        <h3 className={css.title}>{location === '/app' ? 'Home' : location.includes('/app/inbox') ? 'Inbox' : location.includes('/app/outbox') ? 'Outbox' : ''}</h3>yar
                         <div className={css.content}>
                             <Switch>
                                 <Route path="/app" component={Home} exact />
